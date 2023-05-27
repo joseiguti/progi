@@ -1,0 +1,47 @@
+{# templates/bid_calculation/index.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="mt-4">Bid Calculation</h1>
+
+        {{ form_start(form, {'attr': {'class': 'mt-4'}}) }}
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="mb-3">
+                    {{ form_label(form.amount, 'Vehicle base price', {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.amount, {'attr': {'class': 'form-control', 'oninput': 'this.value = this.value.replace(/[^0-9]/g, \'\')'}}) }}
+                    <div id="emailHelp" class="form-text">Put here the base price for the vehicle, e.g. 1000</div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="mb-3">
+                    {{ form_label(form.description, 'Vehicle type', {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+                    <div id="emailHelp" class="form-text">Please select the vehicle type. Choice between <b>Luxury</b> and <b>Common</b></div>
+                </div>
+            </div>
+
+        </div>
+        {{ form_end(form) }}
+    </div>
+
+    <div id="result" class="container mt-4 d-none">
+        <h3>Total</h3>
+        <div class="list-group list-group-flush">
+            <div class="list-group-item">
+                <p class="mb-1 text-highlight fw-bold" id="total"></p>
+                <small class="text-muted">Total amount to pay</small>
+            </div>
+        </div>
+
+        {% include 'bid_calculation/_table.html.twig' %}
+
+    </div>
+
+    <div id="error-message" class="container mt-4 text-danger d-none">
+        <p>An error has occurred. Please try again later.</p>
+    </div>
+{% endblock %}

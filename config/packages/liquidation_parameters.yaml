@@ -1,0 +1,21 @@
+parameters:
+  vehicle_types:
+    lux: 'Luxury'      # Represents the vehicle type "Luxury"
+    com: 'Common'      # Represents the vehicle type "Common"
+  liquidation_parameters:
+    basic_user_fee: 0.1                  # Fixed fee for users
+    common_car:
+      minimum: 10                        # Minimum value for common cars
+      maximum: 50                        # Maximum value for common cars
+    luxury_car:
+      minimum: 25                        # Minimum value for luxury cars
+      maximum: 200                       # Maximum value for luxury cars
+    seller_special_fee:
+      common_car: 0.02                    # Special fee for sellers of common cars
+      luxury_car: 0.04                    # Special fee for sellers of luxury cars
+    association_costs:
+      - { amount: 500, cost: 5 }          # Association cost for an amount of 500
+      - { amount: 1000, cost: 10 }        # Association cost for an amount of 1000
+      - { amount: 3000, cost: 15 }        # Association cost for an amount of 3000
+      - { amount: null, cost: 20 }        # Association cost for maximum value
+    storage_fee: 100                      # Fixed storage fee
